@@ -32,6 +32,13 @@ const Navbar = () => {
   const textColor = isScrolled || isBlog ? 'text-anthracite' : 'text-white';
   const logoColor = isScrolled || isBlog ? 'text-provence-blue' : 'text-white';
 
+  const flags: Record<Language, string> = {
+    fr: '🇫🇷',
+    en: '🇬🇧',
+    uk: '🇺🇦',
+    ru: '🇷🇺'
+  };
+
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
@@ -57,7 +64,7 @@ const Navbar = () => {
             </Link>
           ))}
           
-          {/* Language Selector */}
+          {/* Language Selector Desktop */}
           <div className="relative">
             <button 
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -100,13 +107,60 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className={textColor} /> : <Menu className={textColor} />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-4">
+          {/* Mobile Language Selector (Globe + Flag + Chevron) */}
+          <div className="relative">
+            <button 
+              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+              className={`flex items-center gap-1.5 px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm transition-all active:scale-95 border border-white/20 ${textColor}`}
+            >
+              <Globe className="w-4 h-4" />
+              <span className="text-lg leading-none">{flags[language]}</span>
+              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {isLangMenuOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                  className="absolute top-full right-[-20px] mt-3 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.2)] rounded-2xl overflow-hidden min-w-[180px] border border-slate-100 p-1.5 z-[110]"
+                >
+                  {(Object.keys(locales) as Language[]).map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => {
+                        setLanguage(lang as Language);
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-colors ${
+                        language === lang ? 'bg-slate-50 text-provence-gold' : 'text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span className="text-xl">{flags[lang as Language]}</span>
+                      <span className="text-sm font-medium tracking-wide">
+                        {locales[lang as Language]['language.current']}
+                      </span>
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="p-1"
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+              setIsLangMenuOpen(false);
+            }}
+          >
+            {isMobileMenuOpen ? <X className={textColor} /> : <Menu className={textColor} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -129,25 +183,7 @@ const Navbar = () => {
               </Link>
             ))}
             
-            {/* Mobile Language Selector */}
-            <div className="flex flex-wrap gap-2 py-2">
-              {(Object.keys(locales) as Language[]).map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => {
-                    setLanguage(lang as Language);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className={`px-4 py-2 rounded-full text-[10px] font-bold tracking-widest uppercase border ${
-                    language === lang ? 'bg-ocre text-white border-ocre' : 'text-slate-600 border-slate-200'
-                  }`}
-                >
-                  {locales[lang as Language]['language.current']}
-                </button>
-              ))}
-            </div>
-
-            <button className="bg-provence-blue text-white py-3 rounded-lg font-bold">
+            <button className="bg-provence-blue text-white py-3 rounded-lg font-bold mt-4">
               Book Your Tour
             </button>
           </motion.div>
