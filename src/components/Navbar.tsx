@@ -30,7 +30,6 @@ const Navbar = () => {
   ];
 
   const textColor = isScrolled || isBlog ? 'text-anthracite' : 'text-white';
-  const logoColor = isScrolled || isBlog ? 'text-provence-blue' : 'text-white';
 
   const flags: Record<Language, string> = {
     fr: '🇫🇷',
@@ -42,14 +41,18 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md py-3 shadow-sm' : isBlog ? 'bg-white/80 backdrop-blur-md py-4 border-b border-slate-100' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white/80 backdrop-blur-md py-2 shadow-sm' : isBlog ? 'bg-white/80 backdrop-blur-md py-3 border-b border-slate-100' : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to={`/${language}`} className="flex items-center gap-2">
-          <div className={`text-2xl font-serif font-bold tracking-tighter ${logoColor}`}>
-            PROVENCE <span className="text-provence-gold">PREMIUM</span>
-          </div>
+        <Link to={`/${language}`} className="flex items-center gap-2 transition-transform hover:scale-105 active:scale-95" aria-label="Provence Premium Home">
+          <img 
+            src="https://i.ibb.co/b4NRhjc/logo-provence-cp.png" 
+            alt="Provence Premium Logo" 
+            className={`transition-all duration-500 ${isScrolled ? 'h-20' : 'h-28'} w-auto object-contain`}
+            referrerPolicy="no-referrer"
+            loading="eager"
+          />
         </Link>
 
         {/* Desktop Nav */}
