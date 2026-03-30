@@ -13,25 +13,30 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { lang } = useParams<{ lang?: string }>();
   
-  // Default to 'fr' if no language is specified or if it's invalid
-  const initialLang: Language = (lang && lang in locales) ? (lang as Language) : 'fr';
-  const [language, setLanguageState] = useState<Language>(initialLang);
-
-  // Update language state when URL param changes
-  useEffect(() => {
-    if (lang && lang in locales && lang !== language) {
-      setLanguageState(lang as Language);
+  // Extract lang from pathname manually since useParams() won't work outside <Routes>
+  const getLangFromPath = (pathname: string): Language => {
+    const firstPart = pathname.split('/').filter(Boolean)[0];
+    if (firstPart && firstPart in locales) {
+      return firstPart as Language;
     }
-  }, [lang, language]);
+    return 'fr';
+  };
+
+  const [language, setLanguageState] = useState<Language>(getLangFromPath(location.pathname));
+
+  // Update language state when URL changes
+  useEffect(() => {
+    const currentLang = getLangFromPath(location.pathname);
+    if (currentLang !== language) {
+      setLanguageState(currentLang);
+    }
+  }, [location.pathname, language]);
 
   const setLanguage = (newLang: Language) => {
     if (newLang === language) return;
     
-    setLanguageState(newLang);
-    
-    // Update URL by replacing the language prefix
+    // Update URL by replacing the language prefix and force reload for physical folders
     const pathParts = location.pathname.split('/').filter(Boolean);
     
     // If the first part is a language code, replace it
@@ -42,7 +47,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       pathParts.unshift(newLang);
     }
     
-    navigate(`/${pathParts.join('/')}${location.search}${location.hash}`);
+    const newPath = `/${pathParts.join('/')}${location.search}${location.hash}`;
+    window.location.href = newPath;
   };
 
   const t = (key: TranslationKey): string => {

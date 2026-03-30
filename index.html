@@ -6,6 +6,18 @@
     <title>My Google AI Studio App</title>
   </head>
   <body>
+    <script>
+      // Language Router
+      (function() {
+        const userLang = navigator.language || navigator.userLanguage;
+        const lang = userLang.startsWith('ru') ? 'ru' : userLang.startsWith('fr') ? 'fr' : 'en';
+        
+        // Only redirect if at the root
+        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+          window.location.href = '/' + lang + '/';
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Redirect 404 to root index
+  ErrorDocument 404 /index.html
+  
+  # Ensure clean URLs and trailing slashes if possible via .htaccess
+  # (Though physical folders usually handle this)
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
