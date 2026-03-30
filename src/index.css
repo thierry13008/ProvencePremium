@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  
+  --color-provence-blue: #1a365d;
+  --color-provence-gold: #c5a059;
+  --color-provence-cream: #fdfbf7;
+  --color-blog-bg: #FDFCFB;
+  --color-ocre: #A0522D;
+  --color-lavender: #9198E5;
+  --color-anthracite: #2D2D2D;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-anthracite bg-blog-bg;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-anthracite;
+  }
+}
