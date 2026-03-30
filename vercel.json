@@ -1,17 +1,15 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/fr/(.*)",
+      "source": "/fr/:path*",
       "destination": "/fr/index.html"
     },
     {
-      "source": "/en/(.*)",
+      "source": "/en/:path*",
       "destination": "/en/index.html"
     },
     {
-      "source": "/ru/(.*)",
+      "source": "/ru/:path*",
       "destination": "/ru/index.html"
     },
     {
