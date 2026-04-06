@@ -34,7 +34,7 @@ export default defineConfig(({mode}) => {
         'X-Frame-Options': 'SAMEORIGIN',
         'X-Content-Type-Options': 'nosniff',
         'Referrer-Policy': 'strict-origin-when-cross-origin',
-        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.picsum.photos https://picsum.photos https://*.ctfassets.net https://*.ibb.co https://i.ibb.co https://ibb.co https://*.cloudinary.com https://res.cloudinary.com; media-src 'self' https://*.cloudinary.com https://res.cloudinary.com; connect-src 'self' https://*.contentful.com https://cdn.contentful.com https://preview.contentful.com",
+        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https:; connect-src 'self' https:;",
         'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
       }
     },
