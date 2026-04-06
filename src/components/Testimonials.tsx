@@ -19,7 +19,7 @@ const Testimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
+            <div key={i} className="card p-8">
               <div className="flex gap-1 mb-6">
                 {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 text-provence-gold fill-provence-gold" />)}
               </div>
@@ -28,7 +28,13 @@ const Testimonials = () => {
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-slate-700 overflow-hidden">
-                  <img src={`https://picsum.photos/seed/user${i}/100/100`} alt="User" referrerPolicy="no-referrer" />
+                  <img 
+                    src={`https://picsum.photos/seed/user${i}/100/100`} 
+                    alt="User" 
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer" 
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">{t('home.testimonials.guest1.name')}</h4>

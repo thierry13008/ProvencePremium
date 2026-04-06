@@ -75,7 +75,14 @@ const HomePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10">
-                <img src="https://picsum.photos/seed/provence-guide/800/1000" alt="Our Guide" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img 
+                  src="https://picsum.photos/seed/provence-guide/800/1000" 
+                  alt="Our Guide" 
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover" 
+                  referrerPolicy="no-referrer" 
+                />
               </div>
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-provence-gold rounded-3xl -z-0 hidden md:block" />
               <div className="absolute top-1/2 -left-10 -translate-y-1/2 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block max-w-[200px]">

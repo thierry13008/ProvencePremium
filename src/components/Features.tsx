@@ -40,7 +40,7 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="text-center group"
+              className="text-center group card p-8"
             >
               <div className="w-16 h-16 bg-provence-cream rounded-2xl flex items-center justify-center mx-auto mb-6 text-provence-gold group-hover:bg-provence-blue group-hover:text-white transition-all duration-500">
                 {f.icon}

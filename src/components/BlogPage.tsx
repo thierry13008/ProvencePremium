@@ -22,12 +22,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
     >
-      <Link to={`/${language}/blog/${article.slug}`} className="group block">
-        <div className="aspect-video rounded-[24px] overflow-hidden mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500 bg-slate-100 flex items-center justify-center">
+      <Link to={`/${language}/blog/${article.slug}`} className="group block card p-4 h-full">
+        <div className="aspect-video rounded-xl overflow-hidden mb-6 bg-slate-100 flex items-center justify-center">
           {hasImage ? (
             <img 
               src={article.image} 
               alt={article.title} 
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
               onError={(e) => {
@@ -116,6 +118,8 @@ const BlogPage = () => {
             <img 
               src={heroArticle.image} 
               alt={heroArticle.title} 
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />

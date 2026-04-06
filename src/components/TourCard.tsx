@@ -6,12 +6,14 @@ const TourCard = ({ title, location, price, image, duration, rating }: any) => {
   return (
     <motion.div 
       whileHover={{ y: -10 }}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100"
+      className="group card-visite flex flex-col"
     >
-      <div className="relative h-72 overflow-hidden">
+      <div className="relative h-[55%] overflow-hidden">
         <img 
           src={image} 
           alt={title} 
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
@@ -26,29 +28,31 @@ const TourCard = ({ title, location, price, image, duration, rating }: any) => {
           </div>
         </div>
       </div>
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-serif font-bold text-slate-800 group-hover:text-provence-blue transition-colors">
-            {title}
-          </h3>
-        </div>
-        <div className="flex items-center gap-4 text-slate-500 text-xs mb-6">
-          <div className="flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5" />
-            {duration}
+      <div className="p-4 flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="text-lg font-serif font-bold text-slate-800 group-hover:text-provence-blue transition-colors line-clamp-1">
+              {title}
+            </h3>
           </div>
-          <div className="flex items-center gap-1">
-            <Wine className="w-3.5 h-3.5" />
-            Wine Tasting Incl.
+          <div className="flex items-center gap-3 text-slate-500 text-[10px] mb-2">
+            <div className="flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              {duration}
+            </div>
+            <div className="flex items-center gap-1">
+              <Wine className="w-3 h-3" />
+              Wine Incl.
+            </div>
           </div>
         </div>
-        <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+        <div className="flex items-center justify-between pt-2 border-t border-slate-50">
           <div>
-            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Starting from</span>
-            <span className="text-lg font-bold text-provence-blue">€{price}</span>
+            <span className="text-[9px] uppercase tracking-wider text-slate-400 block">From</span>
+            <span className="text-base font-bold text-provence-blue">€{price}</span>
           </div>
-          <button className="p-3 rounded-full bg-slate-50 text-provence-blue hover:bg-provence-blue hover:text-white transition-all">
-            <ChevronRight className="w-5 h-5" />
+          <button className="p-2 rounded-full bg-slate-50 text-provence-blue hover:bg-provence-blue hover:text-white transition-all">
+            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </div>

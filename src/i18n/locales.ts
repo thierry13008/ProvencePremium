@@ -1,8 +1,11 @@
 export const locales = {
   "fr": {
     "menu.home": "Accueil",
+    "menu.tours": "Circuits",
     "menu.blog": "Le Mag",
+    "menu.about": "À Propos",
     "menu.contact": "Contact",
+    "menu.book": "Réserver",
     "home.hero.title": "Provence : Votre Guide Authentique",
     "home.hero.subtitle": "Découvrez les secrets de la côte bleue, du Luberon et des Alpilles.",
     "home.button.blog": "Explorer le Magazine",
@@ -55,8 +58,11 @@ export const locales = {
   },
   "en": {
     "menu.home": "Home",
+    "menu.tours": "Tours",
     "menu.blog": "The Mag",
+    "menu.about": "About Us",
     "menu.contact": "Contact",
+    "menu.book": "Book Now",
     "home.hero.title": "Provence: Your Authentic Guide",
     "home.hero.subtitle": "Discover the secrets of the Côte Bleue, Luberon, and Alpilles.",
     "home.button.blog": "Explore the Magazine",
@@ -109,8 +115,11 @@ export const locales = {
   },
   "uk": {
     "menu.home": "Головна",
+    "menu.tours": "Тури",
     "menu.blog": "Журнал",
+    "menu.about": "Про нас",
     "menu.contact": "Контакти",
+    "menu.book": "Забронювати",
     "home.hero.title": "Прованс: Ваш автентичний гід",
     "home.hero.subtitle": "Відкрийте таємниці Блакитного берега, Люберона та Альпій.",
     "home.button.blog": "Дослідити журнал",
@@ -163,8 +172,11 @@ export const locales = {
   },
   "ru": {
     "menu.home": "Главная",
+    "menu.tours": "Туры",
     "menu.blog": "Журнал",
+    "menu.about": "О нас",
     "menu.contact": "Контакты",
+    "menu.book": "Забронировать",
     "home.hero.title": "Прованс: Ваш аутентичный гид",
     "home.hero.subtitle": "Откройте тайны Лазурного берега, Люберона и Альпий.",
     "home.button.blog": "Исследовать журнал",

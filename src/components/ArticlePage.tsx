@@ -128,6 +128,8 @@ const ArticlePage = () => {
           <img 
             src={article.image} 
             alt={article.title} 
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -158,6 +160,8 @@ const ArticlePage = () => {
                 <img 
                   src={`https://picsum.photos/seed/${article.slug}-2/1200/800`} 
                   alt="Atmosphere" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -205,7 +209,14 @@ const ArticlePage = () => {
           {[1, 2, 3].map(i => (
             <div key={i} className="group">
               <div className="aspect-video rounded-3xl overflow-hidden mb-4 shadow-sm group-hover:shadow-lg transition-all">
-                <img src={`https://picsum.photos/seed/more-${i}/800/600`} alt="Related" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <img 
+                  src={`https://picsum.photos/seed/more-${i}/800/600`} 
+                  alt="Related" 
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  referrerPolicy="no-referrer" 
+                />
               </div>
               <h4 className="font-serif text-lg text-slate-800 group-hover:text-ocre transition-colors line-clamp-1">Découverte des sentiers oubliés de Provence</h4>
             </div>

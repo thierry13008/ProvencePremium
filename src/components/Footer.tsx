@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="space-y-6">
-            <div className="text-2xl font-serif font-bold tracking-tighter">
+            <div className="text-2xl font-serif font-bold tracking-tighter opacity-80 hover:opacity-100 transition-opacity">
               PROVENCE <span className="text-provence-gold">PREMIUM</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">

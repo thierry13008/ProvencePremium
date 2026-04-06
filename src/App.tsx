@@ -5,6 +5,7 @@ import ArticlePage from './components/ArticlePage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
+import FloatingContactButtons from './components/FloatingContactButtons';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 // --- Layout ---
@@ -14,6 +15,7 @@ const Layout = () => {
     <div className="min-h-screen">
       <Navbar />
       <Outlet />
+      <FloatingContactButtons />
       <Footer />
     </div>
   );

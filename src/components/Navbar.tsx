@@ -23,9 +23,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: t('menu.home'), href: `/${language}` },
-    { name: 'Tours', href: `/${language}#tours` },
+    { name: t('menu.tours'), href: `/${language}#tours` },
     { name: t('menu.blog'), href: `/${language}/blog` },
-    { name: 'About Us', href: `/${language}#about` },
+    { name: t('menu.about'), href: `/${language}#about` },
     { name: t('menu.contact'), href: `/${language}#contact` },
   ];
 
@@ -49,9 +49,10 @@ const Navbar = () => {
           <img 
             src="https://i.ibb.co/b4NRhjc/logo-provence-cp.png" 
             alt="Provence Premium Logo" 
-            className={`transition-all duration-500 ${isScrolled ? 'h-20' : 'h-28'} w-auto object-contain`}
-            referrerPolicy="no-referrer"
             loading="eager"
+            decoding="async"
+            className={`transition-all duration-500 ${isScrolled ? 'h-20' : 'h-28'} w-auto object-contain opacity-70 hover:opacity-100`}
+            referrerPolicy="no-referrer"
           />
         </Link>
 
@@ -106,7 +107,7 @@ const Navbar = () => {
           </div>
 
           <button className="bg-provence-gold hover:bg-provence-gold/90 text-white px-6 py-2.5 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all transform hover:scale-105">
-            Book Now
+            {t('menu.book')}
           </button>
         </div>
 
@@ -187,7 +188,7 @@ const Navbar = () => {
             ))}
             
             <button className="bg-provence-blue text-white py-3 rounded-lg font-bold mt-4">
-              Book Your Tour
+              {t('menu.book')}
             </button>
           </motion.div>
         )}
